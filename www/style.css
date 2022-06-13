@@ -1,0 +1,9 @@
+.wrapper {
+    margin: 0 auto;
+    width: 200px;
+}
+
+.btn-list {
+    list-style: none;
+    list-style-type: none;
+}
