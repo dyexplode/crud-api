@@ -3,16 +3,22 @@ You need to do this checks:
  - [ ] Clone this repository
  - [ ] Checkout to branch dev
  - [ ] In console run command: "npm install"
+ - [ ] Run application command: "npm run start:dev" or "npm run start:prod"
  - [ ] Connect with Postman on "localhost:8080"
  - [ ] Check simple functional --> POST, GET, PUT, DELETE
- 
+
+Also you must testing my CRUD Api with WEB interface!!!
+You need open this [URL](http://localhost:8080) into any browser 
+And you must testing this aplication in Intuitive simple interface.
 
 
+# Pull Request Header #
 Task: [Link To Task](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/assignment.md)
-Screenshot: none
-Deploy: none
+Screenshot: picture.
+Deploy: [Local deploy URL](http://localhost:8080). Avialable after run application.
+
 Complete: 19.06.2022 / Deadline 19.06.2022
-Score: 92 / 202
+Score: 112 / 202
 
 # Self Estimate #
 
