@@ -26,5 +26,9 @@
   "homepage": "https://github.com/dyexplode/crud-api#readme",
   "devDependencies": {
     "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "uuid": "^8.3.2"
   }
 }

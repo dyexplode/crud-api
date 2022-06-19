@@ -1,5 +1,7 @@
 import http from 'http';
-import { requestHandler as routes } from './util/routes.js';
+import { requestHandler as routes } from './src/routes.js';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const server = http.createServer(routes);
-server.listen(8080);
+server.listen(process.env.CRUD_PORT);

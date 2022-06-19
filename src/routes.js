@@ -6,7 +6,17 @@ const requestHandler = (req, res) => {
     // res.write('Hello');
     // return res.end();
     //console.log(res);
+    // console.log(req);
+    console.log(req.data);
+    console.log(req.meta);
+    console.log(req.requestHandler);
+    console.log(req.dirname);
+    console.log(req.rf);
+    console.log(req.body);
+    console.log(req.params);
     console.log(req.method, req.url);
+    req.on('data')
+
     switch (req.method) {
         case 'GET':
             let pr = false;
