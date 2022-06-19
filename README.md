@@ -30,8 +30,8 @@ Score: 92 / 202
 ## Advanced Scope ##
 
  - [ ] +30 Task implemented on Typescript
- - [ ] +10 Processing of requests to non-existing endpoints implemented properly
- - [ ] +10 Errors on the server side that occur during the processing of a request should be handled and processed properly
+ - [x] +10 Processing of requests to non-existing endpoints implemented properly
+ - [x] +10 Errors on the server side that occur during the processing of a request should be handled and processed properly
  - [x] +10 Development mode: npm script start:dev implemented properly
  - [x] +10 Production mode: npm script start:prod implemented properly
 
@@ -48,4 +48,4 @@ Score: 92 / 202
  - [ ] -20 No separate development branch
  - [ ] -20 Less than 3 commits in the development branch, not including commits that make changes only to Readme.md or similar files (tsconfig.json, .gitignore, .prettierrc.json, etc.)
 
- ** Total score: 92 / 202 **
+ ** Total score: 112 / 202 **

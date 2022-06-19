@@ -7,13 +7,8 @@ const userGroup = new Group();
 
 
 const requestHandler = (req, res) => {
-    console.log(req.method, req.url);
-    req.on('data', (chunk) => {
-        console.log(chunk.toString());
-    })
     const dir = path.dirname(req.url).toLowerCase();
     const doc = path.basename(req.url);
-    //console.log('dir -->', dir, '\ndoc -->', doc);
     switch (dir) {
         case '/':
         case '/test':
@@ -63,44 +58,65 @@ const requestHandler = (req, res) => {
         case '/api':
             switch(req.method) {
             case 'GET':
-                console.log('doc -->', doc);
                 if (doc === 'users') {
-                    res.write(JSON.stringify(userGroup.getAll()));
+                    let [status, msg] = userGroup.getAll();
+                    res.statusCode = status;
+                    res.write(JSON.stringify(msg));
                     res.end();
                 } else {
-                    res.write(JSON.stringify(userGroup.getFromId(doc)));
+                    let [status, msg] = userGroup.getFromId(doc);
+                    res.statusCode = status;
+                    res.write(JSON.stringify(msg));
                     res.end();
                 }
                 break;
+
             case 'POST':
                 let queryContent = '';
                 req.on('data', (chunk) => {
                     if (chunk) queryContent +=chunk;
                 });
                 req.on('end', () => {
-                    console.log('end -->', queryContent);
-                    const data = JSON.parse(queryContent);
-                    console.log('data -->', data)
-                    res.write(JSON.stringify(userGroup.add(data.userName, data.age, data.hobbies)));
-                    res.end();
+                    try {
+                        const data = JSON.parse(queryContent);
+                        let [status, msg] = userGroup.add(data.userName, data.age, data.hobbies);
+                        res.statusCode = status;
+                        res.write(JSON.stringify(msg));
+                        res.end();
+                    } catch {
+                        res.statusCode = 500;
+                        res.write(JSON.stringify({
+                            "message": "Server error. Type of dann is broke."}));
+                        res.end();
+                    }
                 })
                 break;
+
             case 'DELETE':
-                console.log(doc)
-                userGroup.removeById(doc);
-                res.statusCode = 204;
+                let [status, msg] = userGroup.removeById(doc);
+                res.statusCode = status;
+                if (status !== 204) res.write(JSON.stringify(msg));
                 res.end();
                 break;
+
             case 'PUT':
                 let queryContentUpdate = '';
                 req.on('data', (chunk) => {
-                    console.log(chunk);
                     if (chunk) queryContentUpdate += chunk;
                 })
                 req.on('end', () => {
-                    const data = JSON.parse(queryContentUpdate);
-                    res.write(JSON.stringify(userGroup.updateById(doc, data.userName, data.age, data.hobbies)));
-                    res.end();
+                    try {
+                        const data = JSON.parse(queryContentUpdate);
+                        let [status, msg] = userGroup.updateById(doc, data.userName, data.age, data.hobbies);
+                        res.statusCode = status;
+                        res.write(JSON.stringify(msg));
+                        res.end();
+                    } catch{
+                        res.statusCode = 500;
+                        res.write(JSON.stringify({
+                            "message": "Server error. Type of dann is broke."}));
+                        res.end();
+                    }
                 })
                 break;
             }
