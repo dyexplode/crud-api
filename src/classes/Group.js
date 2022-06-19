@@ -16,7 +16,7 @@ export default class Group {
       return [201, u];
     } catch {
       return [400, {
-        message: 'Request body does not contain required fields',
+        message: 'Request body does not contain required fields or not corrected type',
       }];
     }
   }
@@ -68,9 +68,9 @@ export default class Group {
         message: 'Id not valid',
       }]
     }
-    if (!(userName && age && hobbies)) {
+    if (!(userName && age && hobbies && typeof userName === 'string' && typeof age === 'number' && Array.isArray(hobbies))) {
       return [400, {
-        message: 'Required fields one or more are empty',
+        message: 'Required fields one or more are empty or not corrected type',
       }]
     }
     const toUpdate = this.room.find((item) => {
