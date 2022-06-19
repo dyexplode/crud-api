@@ -11,13 +11,24 @@
     <div class="wrapper">
         <head class="head"></head>
         <main class="main">
-            <input type="text" class="command-input" placeholder="Write your command...">
+            <p> This command includs prefix localhost:8080/api/users/
+                You need input ID of users in in-memory-database.
+                Such as "d5484396-97d1-46d4-a0c8-8050861828ae"
+            </p>
+            <input type="text" class="command-input" placeholder="Write your ID... default prefix '/api/users'">
+            <textarea class="text-body" placeholder='Wrtite this body content such as JSON format:
+    {
+        "userName": "Ali",
+        "age": 2,
+        "hobbies": []
+    }' id="inputMemo"></textarea>
             <ul class="btn-list">
                 <li><button class="push" id="get" data-command="GET">GET</button></li>
                 <li><button class="push" id="put" data-command="PUT">PUT</button></li>
                 <li><button class="push" id="post" data-command="POST">POST</button></li>
                 <li><button class="push" id="delete" data-command="DELETE">DELETE</button></li>
             </ul>
+            <div class="response-text" id="result"></div>
         </main>
     </div>
     <script src="index.js"></script>
