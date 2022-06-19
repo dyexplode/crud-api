@@ -13,7 +13,7 @@ const requestHandler = (req, res) => {
         case '/':
         case '/test':
             if (doc === '' || doc === 'test' || doc === 'index.html') {
-                
+                res.contentType = 'text/html';
                 const rf = fs.createReadStream(path.join(path.dirname(fileURLToPath(import.meta.url)), '../www/index.html'), { encoding: 'utf-8' });
                 rf.on('readable', () => {
                     const data = rf.read();
