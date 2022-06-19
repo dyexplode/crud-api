@@ -1,0 +1,34 @@
+{
+  "name": "crud-api",
+  "version": "1.0.0",
+  "description": "crud api ",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "nodemon app.js",
+    "start:prod": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyexplode/crud-api.git"
+  },
+  "keywords": [
+    "api",
+    "crud",
+    "simple"
+  ],
+  "author": "Vladimir Kahanovski <admin@ttp.by>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dyexplode/crud-api/issues"
+  },
+  "homepage": "https://github.com/dyexplode/crud-api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "uuid": "^8.3.2"
+  }
+}
