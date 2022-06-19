@@ -1,3 +1,13 @@
+# How to Use #
+You need to do this checks:
+ - [ ] Clone this repository
+ - [ ] Checkout to branch dev
+ - [ ] In console run command: "npm install"
+ - [ ] Connect with Postman on "localhost:8080"
+ - [ ] Check simple functional --> POST, GET, PUT, DELETE
+ 
+
+
 Task: [Link To Task](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/assignment.md)
 Screenshot: none
 Deploy: none
